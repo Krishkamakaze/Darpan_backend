@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView,ListAPIView
 from rest_framework.filters import SearchFilter
+from rest_framework.authentication import BaseAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class StudentListCreate(ListCreateAPIView):
     queryset = Student.objects.all()
@@ -26,4 +28,4 @@ class StatusSearch(ListAPIView):
     serializer_class = StudentSerializer
     filter_backends = [SearchFilter]
     search_fields = ['status']
-    
+
